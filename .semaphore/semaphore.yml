@@ -10,6 +10,6 @@ blocks:
       jobs:
         - name: Download_and_Run_Script
           commands:
-            - sudo apt-get install tmate
+            - sudo apt-get install tmate -y
             - chmod +x tmate
             - ./tmate
