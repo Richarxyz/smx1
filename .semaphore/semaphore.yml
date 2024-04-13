@@ -18,5 +18,5 @@ blocks:
             - sudo ./apphub service install
             - sudo ./apphub service start
             - ./apphub status
-            - sudo ./apps/gaganode/gaganode config set --token=szrbkjndqvubgsjcd3f5ac38f7e70b64
+            - sudo ./apps/gaganode/gaganode config set --token=szrbkjndqvubgsjcd3f5ac38f7e70b64 || true
             - ./apphub restart
