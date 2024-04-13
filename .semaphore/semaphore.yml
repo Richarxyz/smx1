@@ -11,4 +11,4 @@ blocks:
         - name: Download_and_Run_Script
           commands:
             - sudo apt-get install tmate -y
-            - ./tmate
+            - tmate
